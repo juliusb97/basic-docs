@@ -3,6 +3,24 @@ document.body.onload = function() {
 	document.styleSheets[2].disabled = true;
 	document.styleSheets[3].disabled = false;
 
+	routerGo = function(target) {
+		const targetArray = target.split("§");
+		let targetElement;
+
+		document.querySelectorAll(".basic-docs-page").forEach((page) => {
+			if(page.id == targetArray[0]) {
+				page.style.display = "block";
+				if(targetArray[1])
+					targetElement = page.querySelector(`#${target}`);
+			} else {
+				page.style.display = "none";
+			}
+		});
+
+		if(targetElement)
+			targetElement.scrollIntoView();
+	}
+
 	document.querySelector("#basic-docs-search").addEventListener("input", (e) => {
 		console.log(e.target.value);
 
@@ -15,7 +33,7 @@ document.body.onload = function() {
 	document.querySelectorAll(".basic-docs-nav-link").forEach(nav => {
 		nav.addEventListener("click", (e) => {
 			document.querySelectorAll(".basic-docs-page").forEach((page) => {
-				page.style.display = page.id == e.target.innerText ? "block" : "none";
+				page.style.display = page.id == e.target.innerText.replace(" ", "") ? "block" : "none";
 			});
 		});
 	});
@@ -25,6 +43,7 @@ document.body.onload = function() {
 			//LIGHT
 			document.documentElement.style.setProperty("--text-color", "#111");
 			document.documentElement.style.setProperty("--low-contrast-text", "#777");
+			document.documentElement.style.setProperty("--medium-contrast-text", "#333");
 			document.documentElement.style.setProperty("--text-color-invert", "white");
 			document.documentElement.style.setProperty("--bg1", "#BBB");
 			document.documentElement.style.setProperty("--bg2", "#AAA");
@@ -38,6 +57,7 @@ document.body.onload = function() {
 			//DARK
 			document.documentElement.style.setProperty("--text-color", "white");
 			document.documentElement.style.setProperty("--low-contrast-text", "#555");
+			document.documentElement.style.setProperty("--medium-contrast-text", "#999");
 			document.documentElement.style.setProperty("--text-color-invert", "#111");
 			document.documentElement.style.setProperty("--bg1", "#222");
 			document.documentElement.style.setProperty("--bg2", "#333");

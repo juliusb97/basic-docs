@@ -3,6 +3,10 @@
 	color: var(--text-color);
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 html, body {
 	background: var(--bg1);
 	width: 100%;
@@ -28,6 +32,10 @@ code {
 	font-size: 1rem;
 	display: inline-block;
 	overflow-x: auto;
+}
+
+.anchor {
+	color: var(--medium-contrast-text);
 }
 
 ul {
@@ -181,7 +189,7 @@ ul {
 
 #basic-docs-search {
 	height: 2.5rem;
-	min-width: 20rem;
+	min-width: 15rem;
 	border-radius: 10rem;
 	border: 1px var(--text-color);
 	color: black;
@@ -222,6 +230,15 @@ li {
 #basic-docs-nav-items {
 	flex-grow: 1;
 	padding-bottom: 1rem;
+}
+
+.basic-docs-nav-link {
+	text-decoration: none;
+	font-weight: 700;
+}
+
+.basic-docs-nav-link-nested {
+	font-weight: 100;
 }
 
 #basic-docs-footer, #basic-docs-footer-mobile {

@@ -30,12 +30,27 @@ if(fs.existsSync(path.join(__dirname, "../def/def.json"))) {
 	for(let pageName of pageNames) {
 		const content = converter.makeHtml(fs.readFileSync(path.join(__dirname, `../def/${pageName}`)).toString());
 
-		const pageNameId = pageName.split(".")[0];
+		const pageNameId = pageName.split(".")[0].split(" ").join(""); //TODO somehow both '.replace(" ", "")' and '.trim()' don't work here
 		const htmlContent = new JSDOM(`<section style="display: ${pageNameId == def.start ? 'block' : 'none'};" class="basic-docs-page" id="${pageNameId}">${content}</section>`);
+		
+		//syntax highlighting
 		htmlContent.window.document.querySelectorAll("code").forEach(code => {
 			if(code.classList.item(0))
-				// code.innerHTML = hljs.highlight(code.classList.item(0), code.innerHTML).value;
 				code.innerHTML = hljs.highlight(code.innerHTML, { language: code.classList.item(0) }).value;
+		});
+
+		//Add headline id's
+		htmlContent.window.document.querySelectorAll("h1, h2").forEach(headline => {
+			headline.id = `${pageNameId}§${headline.innerHTML}`.split(" ").join(""); //TODO somehow both '.replace(" ", "")' and '.trim()' don't work here
+		});
+
+		//Make anchors work
+		htmlContent.window.document.querySelectorAll("a").forEach(anchor => {
+			anchor.setAttribute("onclick", `routerGo('${anchor.href}')`);
+			// anchor.href = `#${anchor.href.split("§")[1]}`;
+			anchor.href = "#";
+			anchor.innerHTML = `&rdsh;${anchor.innerHTML}`;
+			anchor.classList.add("anchor");
 		});
 
 		pageContents.set(pageName, htmlContent.window.document.body.innerHTML);
@@ -84,6 +99,7 @@ if(fs.existsSync(path.join(__dirname, "../def/def.json"))) {
 		aElement.innerHTML = page.name;
 		aElement.href = "#";
 		aElement.classList.add("basic-docs-nav-link");
+		aElement.classList.add("basic-docs-nav-link-nested");
 		liElement.append(aElement);
 		
 		pages.set(page.name, liElement);

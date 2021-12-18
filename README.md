@@ -16,4 +16,7 @@ That's it, the generated page is located in the `public` directory!
 Tip: 
 I've also integrated syntax hightlighting for code. In your Markdown files, write three backticks and then the name of your language.
 
+Another Tip:
+You can use Markdowns Link-Syntax to navigate through basic-docs. Just set the URL to `<page>§<headline title>`, where headline title would be "Generatingasite" for the headline above. (Remove spaces) 
+
 This project uses [JSDOM](https://github.com/jsdom/jsdom), [highlight.js](https://github.com/highlightjs/highlight.js/) and [showdown.js](https://github.com/showdownjs/showdown), so many thanks to everyone involved there, this would have been way harder without you!

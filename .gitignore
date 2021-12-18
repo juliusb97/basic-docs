@@ -4,3 +4,4 @@ def/**/*.md
 .vscode/
 
 !def/Example.md
+!def/Lorem Ipsum.md
