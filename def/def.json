@@ -1,0 +1,25 @@
+{
+	"head": "Basic docs",
+	"subhead": "A quick web SPA doc generator",
+	"start": "Example",
+	"categories": [
+		"Example",
+		"Features",
+		"License"
+	],
+	"pages": [
+		{
+			"parent": "Features",
+			"name": "Page Generation"
+		},
+		{
+			"parent": "Features",
+			"name": "Search"
+		},
+		{
+			"parent": "Features",
+			"name": "Light & Darkmodes"
+		}
+	],
+	"footer": "Copyright, MIT 2021 Julius Banke"
+}

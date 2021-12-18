@@ -1,0 +1,23 @@
+{
+  "name": "basic-docs",
+  "version": "1.0.0",
+  "description": "A simple doc page generator, which is set up by JSON",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc"
+  },
+  "author": "Julius Banke",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^17.0.0"
+  },
+  "dependencies": {
+    "@types/jsdom": "^16.2.13",
+    "@types/showdown": "^1.9.4",
+    "highlight.js": "^11.3.1",
+    "jsdom": "^19.0.0",
+    "showdown": "^1.9.1",
+    "ts-node": "^10.4.0"
+  }
+}
