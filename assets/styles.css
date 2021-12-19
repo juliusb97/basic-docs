@@ -42,6 +42,14 @@ ul {
 	margin: 0.5rem;
 }
 
+h1, h2, h3, h4, h5 {
+	margin-bottom: 0.5rem;
+}
+
+hr {
+	border: 1px solid var(--bg1);
+}
+
 /*max-width: 1200px*/
 @media screen and (max-width: 1200px) {
 
@@ -254,4 +262,22 @@ li {
 
 #basic-docs-footer-mobile {
 	display: none;
+}
+
+#basic-docs-scroll-top {
+	background: var(--bg1);
+	width: 5rem;
+	height: 5rem;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	bottom: 5rem;
+	right: 5rem;
+	font-size: 3rem;
+	border-radius: 200rem;
+}
+
+#basic-docs-scroll-top > a{
+	text-decoration: none;
 }

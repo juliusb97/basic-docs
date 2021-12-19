@@ -42,6 +42,7 @@ if(fs.existsSync(path.join(__dirname, "../def/def.json"))) {
 		//Add headline id's
 		htmlContent.window.document.querySelectorAll("h1, h2").forEach(headline => {
 			headline.id = `${pageNameId}§${headline.innerHTML}`.split(" ").join(""); //TODO somehow both '.replace(" ", "")' and '.trim()' don't work here
+			headline.append(htmlContent.window.document.createElement("hr"));
 		});
 
 		//Make anchors work

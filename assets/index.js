@@ -19,7 +19,24 @@ document.body.onload = function() {
 
 		if(targetElement)
 			targetElement.scrollIntoView();
+	};
+
+	scrollTop = function() {
+		document.querySelector("#basic-docs-main").scroll(0, 0);
 	}
+
+	document.querySelector("#basic-docs-scroll-top").addEventListener("click", (e) => {
+		scrollTop();
+	});
+
+	document.querySelector("#basic-docs-main").addEventListener("scroll", (e) => {
+		const currentHeight = e.target.scrollY || e.target.scrollTop;
+		if(currentHeight > 100){
+			document.querySelector("#basic-docs-scroll-top").style.display = "flex";
+		} else {
+			document.querySelector("#basic-docs-scroll-top").style.display = "none";
+		}
+	});
 
 	document.querySelector("#basic-docs-search").addEventListener("input", (e) => {
 		console.log(e.target.value);
