@@ -72,7 +72,7 @@ document.body.onload = function() {
 			document.styleSheets[3].disabled = true;
 		} else {
 			//DARK
-			document.documentElement.style.setProperty("--text-color", "white");
+			document.documentElement.style.setProperty("--text-color", "#B8B8B8");
 			document.documentElement.style.setProperty("--low-contrast-text", "#555");
 			document.documentElement.style.setProperty("--medium-contrast-text", "#999");
 			document.documentElement.style.setProperty("--text-color-invert", "#111");
